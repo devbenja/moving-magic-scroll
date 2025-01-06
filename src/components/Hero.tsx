@@ -20,19 +20,29 @@ export const Hero = () => {
       >
         <div className="max-w-4xl">
           <motion.h1 
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
             className="text-7xl md:text-9xl font-bold text-white mb-8 leading-tight"
           >
-            El Futuro
-            <br />
-            <span className="text-accent">del Moving</span>
+            <motion.span
+              initial={{ opacity: 0, x: -100 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="block"
+            >
+              El Futuro
+            </motion.span>
+            <motion.span
+              initial={{ opacity: 0, x: 100 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-accent"
+            >
+              del Moving
+            </motion.span>
           </motion.h1>
           <motion.p 
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
             className="text-2xl md:text-3xl text-white/90 mb-12 max-w-2xl"
           >
             Transformando la experiencia de mudanza con tecnología y excelencia
@@ -40,7 +50,7 @@ export const Hero = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
           >
             <motion.button
               whileHover={{ scale: 1.05, backgroundColor: "#FB923C" }}
