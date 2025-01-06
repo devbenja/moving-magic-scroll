@@ -1,6 +1,16 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 export const Hero = () => {
+  const { scrollY } = useScroll();
+  const [ref, inView] = useInView({
+    threshold: 0.5,
+    triggerOnce: false
+  });
+
+  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
+  const yPos = useTransform(scrollY, [0, 300], [0, 100]);
+
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-primary/90 to-primary">
       <div className="absolute inset-0 z-0">
@@ -13,9 +23,8 @@ export const Hero = () => {
       </div>
       <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-transparent to-transparent" />
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+        ref={ref}
+        style={{ opacity, y: yPos }}
         className="container mx-auto px-4 z-10"
       >
         <div className="max-w-4xl">
@@ -24,7 +33,7 @@ export const Hero = () => {
           >
             <motion.span
               initial={{ opacity: 0, x: -100 }}
-              animate={{ opacity: 1, x: 0 }}
+              animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -100 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="block"
             >
@@ -32,16 +41,16 @@ export const Hero = () => {
             </motion.span>
             <motion.span
               initial={{ opacity: 0, x: 100 }}
-              animate={{ opacity: 1, x: 0 }}
+              animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 100 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-accent"
+              className="text-accent block"
             >
               del Moving
             </motion.span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, delay: 0.6 }}
             className="text-2xl md:text-3xl text-white/90 mb-12 max-w-2xl"
           >
@@ -49,7 +58,7 @@ export const Hero = () => {
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
             <motion.button
