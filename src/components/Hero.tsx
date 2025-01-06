@@ -9,7 +9,9 @@ export const Hero = () => {
   });
 
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
-  const yPos = useTransform(scrollY, [0, 300], [0, 100]);
+  const leftSlide = useTransform(scrollY, [0, 300], [0, -100]);
+  const rightSlide = useTransform(scrollY, [0, 300], [0, 100]);
+  const yPos = useTransform(scrollY, [0, 300], [0, 50]);
 
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-primary/90 to-primary">
@@ -34,6 +36,7 @@ export const Hero = () => {
             <motion.span
               initial={{ opacity: 0, x: -100 }}
               animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -100 }}
+              style={{ x: leftSlide }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="block"
             >
@@ -42,6 +45,7 @@ export const Hero = () => {
             <motion.span
               initial={{ opacity: 0, x: 100 }}
               animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 100 }}
+              style={{ x: rightSlide }}
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-accent block"
             >
