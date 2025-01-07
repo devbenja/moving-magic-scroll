@@ -34,19 +34,28 @@ export const Hero = () => {
             className="text-7xl md:text-9xl font-bold text-white mb-8 leading-tight"
           >
             <motion.span
-              initial={{ opacity: 0, x: -100 }}
+              initial={{ opacity: 0, x: -200 }}
               animate={{ opacity: 1, x: 0 }}
+              transition={{ 
+                type: "spring",
+                duration: 1,
+                bounce: 0.3
+              }}
               style={{ x: leftSlide }}
-              transition={{ duration: 0.8, delay: 0.2 }}
               className="block"
             >
               El Futuro
             </motion.span>
             <motion.span
-              initial={{ opacity: 0, x: 100 }}
+              initial={{ opacity: 0, x: 200 }}
               animate={{ opacity: 1, x: 0 }}
+              transition={{ 
+                type: "spring",
+                duration: 1,
+                bounce: 0.3,
+                delay: 0.2
+              }}
               style={{ x: rightSlide }}
-              transition={{ duration: 0.8, delay: 0.4 }}
               className="text-accent block"
             >
               del Moving
