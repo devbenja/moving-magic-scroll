@@ -64,17 +64,29 @@ export const Hero = () => {
             </motion.span>
           </motion.h1>
           <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
+            initial={{ x: -500, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ 
+              type: "spring",
+              stiffness: 100,
+              damping: 20,
+              duration: 1,
+              delay: 0.4
+            }}
             className="text-2xl md:text-3xl text-white/90 mb-12 max-w-2xl"
           >
             Transformando la experiencia de mudanza con tecnología y excelencia
           </motion.p>
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
+            initial={{ x: 500, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ 
+              type: "spring",
+              stiffness: 100,
+              damping: 20,
+              duration: 1,
+              delay: 0.6
+            }}
           >
             <motion.button
               whileHover={{ scale: 1.05, backgroundColor: "#FB923C" }}
