@@ -35,7 +35,7 @@ export const Hero = () => {
           >
             <motion.span
               initial={{ opacity: 0, x: -100 }}
-              animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -100 }}
+              animate={{ opacity: 1, x: 0 }}
               style={{ x: leftSlide }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="block"
@@ -44,7 +44,7 @@ export const Hero = () => {
             </motion.span>
             <motion.span
               initial={{ opacity: 0, x: 100 }}
-              animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 100 }}
+              animate={{ opacity: 1, x: 0 }}
               style={{ x: rightSlide }}
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-accent block"
@@ -54,7 +54,7 @@ export const Hero = () => {
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
             className="text-2xl md:text-3xl text-white/90 mb-12 max-w-2xl"
           >
@@ -62,7 +62,7 @@ export const Hero = () => {
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
             <motion.button
