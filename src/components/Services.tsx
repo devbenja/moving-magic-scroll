@@ -30,13 +30,19 @@ export const Services = () => {
   ];
 
   return (
-    <section className="py-32 bg-gradient-to-b from-gray-900 to-primary relative overflow-hidden min-h-screen flex items-center justify-center" ref={ref}>
-      <div className="container mx-auto px-4">
+    <section className="relative py-32 overflow-hidden bg-gradient-to-b from-black to-primary" ref={ref}>
+      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1493397212122-2b85dda8106b')] bg-cover bg-center opacity-10" />
+      
+      <div className="container mx-auto px-4 relative z-10">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-4xl md:text-5xl font-bold text-white text-center mb-16"
+          className="text-6xl md:text-8xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-accent to-white mb-16 text-center"
+          style={{
+            backgroundSize: "200% 100%",
+            animation: "gradient 2s linear infinite",
+          }}
         >
           Nuestros Servicios
         </motion.h2>
@@ -62,19 +68,20 @@ export const Services = () => {
                 scale: 1.02,
                 transition: { duration: 0.2 }
               }}
-              className="bg-white/10 backdrop-blur-lg p-12 rounded-2xl shadow-xl border border-white/20 hover:border-accent/50 transition-all group"
+              className="relative group"
             >
-              <motion.div 
-                className="text-accent mb-8 transform transition-transform duration-300 group-hover:scale-110"
-              >
-                {service.icon}
-              </motion.div>
-              <h3 className="text-2xl font-bold text-white mb-6">
-                {service.title}
-              </h3>
-              <p className="text-white/80 text-lg">
-                {service.description}
-              </p>
+              <div className="absolute inset-0 bg-gradient-to-r from-accent/20 to-primary/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300" />
+              <div className="relative p-8 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 hover:border-accent/50 transition-all">
+                <div className="text-accent mb-8 transform transition-transform duration-300 group-hover:scale-110">
+                  {service.icon}
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-6">
+                  {service.title}
+                </h3>
+                <p className="text-white/80 text-lg">
+                  {service.description}
+                </p>
+              </div>
             </motion.div>
           ))}
         </motion.div>
