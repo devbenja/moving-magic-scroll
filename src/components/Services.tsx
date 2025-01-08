@@ -32,17 +32,15 @@ export const Services = () => {
   return (
     <section className="py-32 bg-gradient-to-b from-gray-900 to-primary relative overflow-hidden min-h-screen flex items-center justify-center" ref={ref}>
       <div className="container mx-auto px-4">
-        {/* Texto SERVICIOS grande y centrado */}
         <motion.h2
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={inView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: 1, ease: "easeOut" }}
-          className="text-[120px] md:text-[200px] lg:text-[300px] font-bold text-white/10 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 whitespace-nowrap pointer-events-none tracking-widest text-center w-full"
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-4xl md:text-5xl font-bold text-white text-center mb-16"
         >
-          SERVICIOS
+          Nuestros Servicios
         </motion.h2>
 
-        {/* Contenedor de tarjetas */}
         <motion.div 
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
