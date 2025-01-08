@@ -30,14 +30,14 @@ export const Services = () => {
   ];
 
   return (
-    <section className="py-32 bg-gradient-to-b from-gray-900 to-primary relative overflow-hidden min-h-screen flex items-center" ref={ref}>
+    <section className="py-32 bg-gradient-to-b from-gray-900 to-primary relative overflow-hidden min-h-screen flex items-center justify-center" ref={ref}>
       <div className="container mx-auto px-4">
         {/* Texto SERVICIOS grande y centrado */}
         <motion.h2
           initial={{ opacity: 0, scale: 0.8 }}
           animate={inView ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="text-[120px] md:text-[200px] lg:text-[250px] font-bold text-white/10 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 whitespace-nowrap pointer-events-none tracking-wider"
+          className="text-[120px] md:text-[200px] lg:text-[300px] font-bold text-white/10 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 whitespace-nowrap pointer-events-none tracking-widest text-center w-full"
         >
           SERVICIOS
         </motion.h2>
@@ -46,7 +46,7 @@ export const Services = () => {
         <motion.div 
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.5, delay: 1 }}
+          transition={{ duration: 0.5, delay: 2 }}
           className="grid grid-cols-1 md:grid-cols-3 gap-12 relative z-10"
         >
           {services.map((service, index) => (
@@ -56,7 +56,7 @@ export const Services = () => {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ 
                 duration: 0.6, 
-                delay: 1.2 + (index * 0.2),
+                delay: 2.2 + (index * 0.2),
                 ease: "easeOut"
               }}
               whileHover={{ 
