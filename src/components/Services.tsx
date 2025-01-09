@@ -35,14 +35,15 @@ export const Services = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-6xl md:text-8xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-accent to-white mb-16 text-center"
-          style={{
-            backgroundSize: "200% 100%",
-            animation: "gradient 2s linear infinite",
+          initial={{ x: -500, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ 
+            type: "spring",
+            stiffness: 100,
+            damping: 20,
+            duration: 1
           }}
+          className="text-6xl md:text-8xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-accent to-white mb-16 text-center"
         >
           Nuestros Servicios
         </motion.h2>

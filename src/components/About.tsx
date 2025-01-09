@@ -70,15 +70,15 @@ export const About = () => {
           className="max-w-4xl mx-auto text-center mb-20"
         >
           <motion.h2 
+            initial={{ x: -500, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ 
+              type: "spring",
+              stiffness: 100,
+              damping: 20,
+              duration: 1
+            }}
             className="text-6xl md:text-8xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-accent to-white mb-8"
-            animate={inView ? { 
-              backgroundPosition: ["0%", "100%"],
-              transition: { 
-                duration: 2,
-                repeat: Infinity,
-                repeatType: "reverse"
-              }
-            } : {}}
           >
             Innovación en Movimiento
           </motion.h2>
