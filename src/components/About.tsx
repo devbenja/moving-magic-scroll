@@ -1,12 +1,17 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { ArrowRight, Rocket, Users, Award } from "lucide-react";
 
 export const About = () => {
+  const { scrollY } = useScroll();
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.2,
   });
+
+  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
+  const leftSlide = useTransform(scrollY, [0, 300], [0, -100]);
+  const yPos = useTransform(scrollY, [0, 300], [0, 50]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -64,6 +69,7 @@ export const About = () => {
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
         className="container mx-auto px-4 relative z-10"
+        style={{ opacity, y: yPos }}
       >
         <motion.div 
           variants={itemVariants}
@@ -78,6 +84,7 @@ export const About = () => {
               damping: 20,
               duration: 1
             }}
+            style={{ x: leftSlide }}
             className="text-6xl md:text-8xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-accent to-white mb-8"
           >
             Innovación en Movimiento
