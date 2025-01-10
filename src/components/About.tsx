@@ -9,10 +9,6 @@ export const About = () => {
     threshold: 0.2,
   });
 
-  const opacity = useTransform(scrollY, [0, 1000], [1, 0.5]);
-  const leftSlide = useTransform(scrollY, [0, 1000], [0, -50]);
-  const yPos = useTransform(scrollY, [0, 1000], [0, 25]);
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -69,26 +65,14 @@ export const About = () => {
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
         className="container mx-auto px-4 relative z-10"
-        style={{ opacity, y: yPos }}
       >
         <motion.div 
           variants={itemVariants}
           className="max-w-4xl mx-auto text-center mb-20"
         >
-          <motion.h2 
-            initial={{ x: -500, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ 
-              type: "spring",
-              stiffness: 100,
-              damping: 20,
-              duration: 1
-            }}
-            style={{ x: leftSlide }}
-            className="text-6xl md:text-8xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-accent to-white mb-8"
-          >
+          <h2 className="text-6xl md:text-8xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-accent to-white mb-8">
             Innovación en Movimiento
-          </motion.h2>
+          </h2>
           <motion.p 
             className="text-xl md:text-2xl text-white/80 leading-relaxed"
             variants={itemVariants}

@@ -1,17 +1,12 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Truck, Package, ClipboardCheck } from "lucide-react";
 
 export const Services = () => {
-  const { scrollY } = useScroll();
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
-
-  const opacity = useTransform(scrollY, [0, 1000], [1, 0.5]);
-  const leftSlide = useTransform(scrollY, [0, 1000], [0, -50]);
-  const yPos = useTransform(scrollY, [0, 1000], [0, 25]);
 
   const services = [
     {
@@ -39,20 +34,9 @@ export const Services = () => {
       <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1493397212122-2b85dda8106b')] bg-cover bg-center opacity-10" />
       
       <div className="container mx-auto px-4 relative z-10">
-        <motion.h2
-          initial={{ x: -500, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ 
-            type: "spring",
-            stiffness: 100,
-            damping: 20,
-            duration: 1
-          }}
-          style={{ x: leftSlide, opacity, y: yPos }}
-          className="text-6xl md:text-8xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-accent to-white mb-16 text-center"
-        >
+        <h2 className="text-6xl md:text-8xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-accent to-white mb-16 text-center">
           Nuestros Servicios
-        </motion.h2>
+        </h2>
 
         <motion.div 
           initial={{ opacity: 0 }}
