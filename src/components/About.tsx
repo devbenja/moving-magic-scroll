@@ -3,7 +3,6 @@ import { useInView } from "react-intersection-observer";
 import { ArrowRight, Rocket, Users, Award } from "lucide-react";
 
 export const About = () => {
-  const { scrollY } = useScroll();
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.2,
@@ -99,21 +98,12 @@ export const About = () => {
                   <ArrowRight className="w-6 h-6 text-accent opacity-0 group-hover:opacity-100 transform group-hover:translate-x-2 transition-all" />
                 </div>
                 
-                <motion.div 
-                  initial={{ opacity: 0, scale: 0.5 }}
-                  animate={inView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ 
-                    type: "spring",
-                    stiffness: 100,
-                    damping: 20,
-                    delay: index * 0.2 
-                  }}
-                >
-                  <h3 className="text-7xl font-bold text-white mb-2">
+                <motion.div>
+                  <h3 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-2">
                     {stat.value}
                     <span className="text-accent">{stat.suffix}</span>
                   </h3>
-                  <p className="text-xl text-white/80 font-medium mb-2">{stat.title}</p>
+                  <p className="text-lg sm:text-xl text-white/80 font-medium mb-2">{stat.title}</p>
                   <p className="text-white/60">{stat.description}</p>
                 </motion.div>
               </div>

@@ -41,7 +41,7 @@ export const Services = () => {
         <motion.div 
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.5, delay: 2 }}
+          transition={{ duration: 0.5 }}
           className="grid grid-cols-1 md:grid-cols-3 gap-12 relative z-10"
         >
           {services.map((service, index) => (
@@ -50,8 +50,7 @@ export const Services = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ 
-                duration: 0.6, 
-                delay: 2.2 + (index * 0.2),
+                duration: 0.6,
                 ease: "easeOut"
               }}
               whileHover={{ 
