@@ -9,9 +9,9 @@ export const About = () => {
     threshold: 0.2,
   });
 
-  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
-  const leftSlide = useTransform(scrollY, [0, 300], [0, -100]);
-  const yPos = useTransform(scrollY, [0, 300], [0, 50]);
+  const opacity = useTransform(scrollY, [0, 1000], [1, 0.5]);
+  const leftSlide = useTransform(scrollY, [0, 1000], [0, -50]);
+  const yPos = useTransform(scrollY, [0, 1000], [0, 25]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
