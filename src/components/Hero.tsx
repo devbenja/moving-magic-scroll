@@ -28,11 +28,10 @@ export const Hero = () => {
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-black/50" />
         <img
-          src="https://images.unsplash.com/photo-1600125693229-a0c8e1642a05?auto=format&q=80&w=1920&h=1080&fit=crop"
+          src="https://images.unsplash.com/photo-1603796846097-bee99e4a601f?auto=format&q=80&w=1920&h=1080&fit=crop"
           alt="Servicio de mudanzas profesional"
           className="w-full h-full object-cover"
           loading="eager"
-          fetchPriority="high"
         />
       </div>
       <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-transparent to-transparent" />
