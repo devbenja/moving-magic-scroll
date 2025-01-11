@@ -3,7 +3,6 @@ import { useInView } from "react-intersection-observer";
 import { useEffect, useState } from "react";
 
 export const Hero = () => {
-
   const { scrollY } = useScroll();
   const [ref] = useInView({
     threshold: 0.5,
@@ -24,15 +23,16 @@ export const Hero = () => {
     return () => clearTimeout(timer);
   }, []);
 
-
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-primary/90 to-primary">
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-black/50" />
         <img
-          src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7"
-          alt="Moving background"
+          src="https://images.unsplash.com/photo-1600125693229-a0c8e1642a05?auto=format&q=80&w=1920&h=1080&fit=crop"
+          alt="Servicio de mudanzas profesional"
           className="w-full h-full object-cover"
+          loading="eager"
+          fetchPriority="high"
         />
       </div>
       <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-transparent to-transparent" />
