@@ -10,13 +10,12 @@ export const About = () => {
     offset: ["start end", "end start"],
   });
 
-  // Ajustamos la velocidad haciendo que la animación complete más rápido (0.3 en lugar de 0.5)
   const h2Opacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
   const h2TranslateX = useTransform(scrollYProgress, [0, 0.3], [-200, 0]);
 
-  // Ajustamos también la velocidad del párrafo para que coincida (0.3 a 0.5 en lugar de 0.2 a 0.7)
-  const pOpacity = useTransform(scrollYProgress, [0.3, 0.5], [0, 1]);
-  const pTranslateX = useTransform(scrollYProgress, [0.3, 0.5], [200, 0]);
+  // Ajustamos el párrafo para que tenga exactamente la misma velocidad que el título [0, 0.3]
+  const pOpacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
+  const pTranslateX = useTransform(scrollYProgress, [0, 0.3], [200, 0]);
 
   const stats = [
     {
