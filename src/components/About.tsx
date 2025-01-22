@@ -6,15 +6,15 @@ export const About = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
-    target: sectionRef, // Limita el scroll a esta sección
-    offset: ["start end", "end start"], // Activa al entrar y salir de la sección
+    target: sectionRef,
+    offset: ["start end", "end start"],
   });
 
-  // Animaciones para el h2
-  const h2Opacity = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
-  const h2TranslateX = useTransform(scrollYProgress, [0, 0.5], [-200, 0]);
+  // Ajustamos la velocidad haciendo que la animación complete más rápido (0.3 en lugar de 0.5)
+  const h2Opacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
+  const h2TranslateX = useTransform(scrollYProgress, [0, 0.3], [-200, 0]);
 
-  const pOpacity = useTransform(scrollYProgress, [0.2, 0.7], [0, 1]);
+  const pOpacity = useTransform(scrollYProgress, [0.2, 0.5], [0, 1]);
   const pTranslateX = useTransform(scrollYProgress, [0.2, 0.5], [200, 0]);
 
   const stats = [
