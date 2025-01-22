@@ -40,23 +40,23 @@ export const Testimonials = () => {
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <motion.div
-          initial={{ opacity: 1, y: 0 }}
-          className="text-center mb-20"
-        >
+        <div className="text-center mb-20">
           <h2 className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-accent to-white mb-6">
             Experiencias Reales
           </h2>
           <p className="text-xl md:text-2xl text-white/80 max-w-2xl mx-auto">
             Descubre lo que nuestros clientes dicen sobre nuestra revolución en mudanzas
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 1, y: 0 }}
+              whileHover={{ 
+                scale: 1.02,
+                transition: { duration: 0.2 }
+              }}
               className="relative group"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-accent/20 via-primary/20 to-accent/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500" />
@@ -66,8 +66,7 @@ export const Testimonials = () => {
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <Star 
                       key={i} 
-                      className="w-5 h-5 fill-accent text-accent animate-pulse" 
-                      style={{ animationDelay: `${i * 0.2}s` }}
+                      className="w-5 h-5 fill-accent text-accent" 
                     />
                   ))}
                 </div>
