@@ -4,8 +4,8 @@ import { Star, Quote } from "lucide-react";
 
 export const Testimonials = () => {
   const [ref, inView] = useInView({
-    triggerOnce: true,
     threshold: 0.1,
+    triggerOnce: false
   });
 
   const testimonials = [
@@ -31,21 +31,17 @@ export const Testimonials = () => {
 
   return (
     <section className="py-24 relative overflow-hidden bg-gradient-to-b from-black via-primary/90 to-black" ref={ref}>
-      {/* Efectos de fondo */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf')] bg-cover bg-center opacity-10" />
         <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-blue-500/10" />
         
-        {/* Círculos decorativos */}
         <div className="absolute top-20 left-20 w-72 h-72 bg-accent/30 rounded-full blur-3xl" />
         <div className="absolute bottom-20 right-20 w-96 h-96 bg-primary/30 rounded-full blur-3xl" />
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 1, y: 0 }}
           className="text-center mb-20"
         >
           <h2 className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-accent to-white mb-6">
@@ -60,13 +56,7 @@ export const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 50 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ 
-                duration: 0.6,
-                delay: index * 0.2,
-                ease: [0.23, 1, 0.32, 1]
-              }}
+              initial={{ opacity: 1, y: 0 }}
               className="relative group"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-accent/20 via-primary/20 to-accent/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500" />
