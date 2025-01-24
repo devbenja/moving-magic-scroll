@@ -30,11 +30,8 @@ export const Testimonials = () => {
   ];
 
   return (
-    <section className="py-24 relative overflow-hidden bg-gradient-to-b from-black via-primary/90 to-black" ref={ref}>
+    <section className="py-24 relative overflow-hidden bg-gradient-to-b from-black to-primary" ref={ref}>
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf')] bg-cover bg-center opacity-10" />
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-blue-500/10" />
-        
         <div className="absolute top-20 left-20 w-72 h-72 bg-accent/30 rounded-full blur-3xl" />
         <div className="absolute bottom-20 right-20 w-96 h-96 bg-primary/30 rounded-full blur-3xl" />
       </div>
