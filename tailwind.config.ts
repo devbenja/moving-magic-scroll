@@ -19,8 +19,8 @@ export default {
     },
     extend: {
       colors: {
-        primary: "#1E3A8A",
-        accent: "#FB923C",
+        primary: "#E53E3E", // Rojo brillante para coincidir con el logo
+        accent: "#EF4444", // Un tono de rojo ligeramente diferente para acentos
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
