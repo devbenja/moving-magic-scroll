@@ -30,13 +30,8 @@ export const Testimonials = () => {
   ];
 
   return (
-    <section className="py-24 relative overflow-hidden bg-gradient-to-b from-black to-primary" ref={ref}>
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-72 h-72 bg-accent/30 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-primary/30 rounded-full blur-3xl" />
-      </div>
-      
-      <div className="container mx-auto px-4 relative z-10">
+    <section className="py-24 bg-gradient-to-b from-black to-primary" ref={ref}>
+      <div className="container mx-auto px-4">
         <div className="text-center mb-20">
           <h2 className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-accent to-white mb-6">
             Experiencias Reales
@@ -46,7 +41,7 @@ export const Testimonials = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
@@ -56,8 +51,7 @@ export const Testimonials = () => {
               }}
               className="relative group"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-accent/20 via-primary/20 to-accent/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500" />
-              <div className="relative p-8 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 hover:border-accent/50 transition-all h-full flex flex-col">
+              <div className="p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-accent/50 transition-all h-full flex flex-col">
                 <Quote className="w-10 h-10 text-accent mb-4 opacity-50" />
                 <div className="flex gap-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
