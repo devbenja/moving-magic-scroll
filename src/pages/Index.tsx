@@ -5,18 +5,29 @@ import { Testimonials } from "@/components/Testimonials";
 import { OurWork } from "@/components/OurWork";
 import { Contact } from "@/components/Contact";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { Navbar } from "@/components/Navbar";
+import { AppSidebar } from "@/components/AppSidebar";
+import { SidebarProvider } from "@/components/ui/sidebar";
 
 const Index = () => {
   return (
-    <main className="overflow-hidden">
-      <Hero />
-      <About />
-      <Services />
-      <Testimonials />
-      <OurWork />
-      <Contact />
-      <WhatsAppButton />
-    </main>
+    <SidebarProvider>
+      <div className="min-h-screen flex w-full">
+        <AppSidebar />
+        <main className="flex-1">
+          <Navbar />
+          <div className="overflow-hidden pt-16">
+            <Hero />
+            <About />
+            <Services />
+            <Testimonials />
+            <OurWork />
+            <Contact />
+            <WhatsAppButton />
+          </div>
+        </main>
+      </div>
+    </SidebarProvider>
   );
 };
 
