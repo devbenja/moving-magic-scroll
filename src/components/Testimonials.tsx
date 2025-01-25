@@ -51,7 +51,7 @@ export const Testimonials = () => {
               }}
               className="relative group"
             >
-              <div className="p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-accent/50 transition-all h-full flex flex-col">
+              <div className="p-8 rounded-2xl bg-black/40 border border-white/10 hover:border-accent/50 transition-all h-full flex flex-col">
                 <Quote className="w-10 h-10 text-accent mb-4 opacity-50" />
                 <div className="flex gap-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
