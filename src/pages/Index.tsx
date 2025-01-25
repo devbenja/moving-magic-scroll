@@ -16,7 +16,7 @@ const Index = () => {
         <AppSidebar />
         <main className="flex-1">
           <Navbar />
-          <div className="overflow-hidden pt-16">
+          <div className="overflow-hidden">
             <Hero />
             <About />
             <Services />
