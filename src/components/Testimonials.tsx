@@ -1,6 +1,13 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Star, Quote } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 export const Testimonials = () => {
   const [ref, inView] = useInView({
@@ -41,41 +48,52 @@ export const Testimonials = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={index}
-              whileHover={{ 
-                scale: 1.02,
-                transition: { duration: 0.2 }
-              }}
-              className="relative group"
-            >
-              <div className="p-8 rounded-2xl bg-black/40 border border-white/10 hover:border-accent/50 transition-all h-full flex flex-col">
-                <Quote className="w-10 h-10 text-accent mb-4 opacity-50" />
-                <div className="flex gap-1 mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star 
-                      key={i} 
-                      className="w-5 h-5 fill-accent text-accent" 
-                    />
-                  ))}
-                </div>
-                <p className="text-white/80 text-lg mb-6 flex-grow leading-relaxed">
-                  "{testimonial.content}"
-                </p>
-                <div className="pt-4 border-t border-white/10">
-                  <h4 className="text-xl font-bold text-white mb-1">
-                    {testimonial.name}
-                  </h4>
-                  <p className="text-accent/80">
-                    {testimonial.role}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          className="w-full max-w-5xl mx-auto"
+        >
+          <CarouselContent>
+            {testimonials.map((testimonial, index) => (
+              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                <motion.div
+                  whileHover={{ 
+                    scale: 1.02,
+                    transition: { duration: 0.2 }
+                  }}
+                  className="relative group h-full"
+                >
+                  <div className="p-8 rounded-2xl bg-black/40 border border-white/10 hover:border-accent/50 transition-all h-full flex flex-col">
+                    <Quote className="w-10 h-10 text-accent mb-4 opacity-50" />
+                    <div className="flex gap-1 mb-4">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star 
+                          key={i} 
+                          className="w-5 h-5 fill-accent text-accent" 
+                        />
+                      ))}
+                    </div>
+                    <p className="text-white/80 text-lg mb-6 flex-grow leading-relaxed">
+                      "{testimonial.content}"
+                    </p>
+                    <div className="pt-4 border-t border-white/10">
+                      <h4 className="text-xl font-bold text-white mb-1">
+                        {testimonial.name}
+                      </h4>
+                      <p className="text-accent/80">
+                        {testimonial.role}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="text-white border-white hover:bg-white/20" />
+          <CarouselNext className="text-white border-white hover:bg-white/20" />
+        </Carousel>
       </div>
     </section>
   );
