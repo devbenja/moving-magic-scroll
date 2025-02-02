@@ -8,12 +8,25 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { useEffect, useState } from "react";
+import Autoplay from "embla-carousel-autoplay";
 
 export const Testimonials = () => {
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: false
   });
+
+  const [api, setApi] = useState<any>();
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    if (!api) return;
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap());
+    });
+  }, [api]);
 
   const testimonials = [
     {
@@ -36,6 +49,16 @@ export const Testimonials = () => {
     },
   ];
 
+  const plugin = React.useMemo(
+    () =>
+      Autoplay({
+        delay: 4000,
+        stopOnInteraction: true,
+        stopOnMouseEnter: true,
+      }),
+    []
+  );
+
   return (
     <section className="py-24 bg-gradient-to-b from-black to-primary" ref={ref}>
       <div className="container mx-auto px-4">
@@ -53,6 +76,8 @@ export const Testimonials = () => {
             align: "start",
             loop: true,
           }}
+          plugins={[plugin]}
+          setApi={setApi}
           className="w-full max-w-5xl mx-auto"
         >
           <CarouselContent>
@@ -94,6 +119,19 @@ export const Testimonials = () => {
           <CarouselPrevious className="text-white border-white hover:bg-white/20" />
           <CarouselNext className="text-white border-white hover:bg-white/20" />
         </Carousel>
+
+        <div className="flex justify-center gap-2 mt-6">
+          {testimonials.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => api?.scrollTo(index)}
+              className={`w-3 h-3 rounded-full transition-colors ${
+                current === index ? "bg-accent" : "bg-white/20"
+              }`}
+              aria-label={`Ir al testimonio ${index + 1}`}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

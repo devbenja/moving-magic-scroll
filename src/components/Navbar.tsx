@@ -15,14 +15,17 @@ export const Navbar = () => {
 
   const handleLanguageChange = (lang: string) => {
     setCurrentLanguage(lang);
-    // Aquí se puede agregar la lógica para cambiar el idioma de la aplicación
     console.log(`Cambiando idioma a: ${lang}`);
   };
 
   return (
     <>
       <div className="fixed top-4 left-4 z-50">
-        <img src="/logo.png" alt="Logo" className="h-8 w-auto" />
+        <img 
+          src="/lovable-uploads/b5cad5a7-9cd9-4ed8-9881-c99c1e963942.png" 
+          alt="MG Moving Logo" 
+          className="h-16 w-auto" 
+        />
       </div>
       <div className="fixed top-4 right-4 z-50 flex items-center gap-4">
         <DropdownMenu>
